@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hakimi Shoes | Walk With Confidence</title>
+
+  <style>
+    :root {
+      --black: #151311;
+      --brown: #754728;
+      --gold: #d0a062;
+      --cream: #f7f2eb;
+      --white: #ffffff;
+      --muted: #746d66;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      min-height: 78px;
+      padding: 0 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span { color: var(--gold); }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      font-size: 0.84rem;
+    }
+
+    nav ul a:hover { color: var(--gold); }
+
+    .sign-in {
+      padding: 9px 15px;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .sign-in:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 70px 8%;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(16, 12, 9, 0.88), rgba(16, 12, 9, 0.32)),
+        url("https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content { max-width: 650px; }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    h1, h2, h3 { font-family: Georgia, serif; }
+
+    h1 {
+      font-size: clamp(3.2rem, 7vw, 6.2rem);
+      line-height: 1.03;
+      margin-bottom: 22px;
+    }
+
+    .hero p:last-of-type {
+      max-width: 510px;
+      color: #eee6de;
+      margin-bottom: 32px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 27px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.76rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      transition: 0.25s ease;
+    }
+
+    .button:hover {
+      background: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .section { padding: 90px 8%; }
+
+    .intro {
+      max-width: 850px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: clamp(2.1rem, 4vw, 3.5rem);
+      margin-bottom: 18px;
+    }
+
+    .intro p:last-child {
+      color: var(--muted);
+      max-width: 670px;
+      margin: auto;
+    }
+
+    .category-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .category {
+      min-height: 390px;
+      display: flex;
+      align-items: end;
+      padding: 28px;
+      color: var(--white);
+      background-size: cover;
+      background-position: center;
+      transition: 0.3s ease;
+    }
+
+    .category:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(40, 25, 15, 0.16);
+    }
+
+    .category:nth-child(1) {
+      background-image: linear-gradient(transparent, rgba(0,0,0,.78)),
+        url("https://images.unsplash.com/photo-1614252369475-531eba835eb1?auto=format&fit=crop&w=800&q=85");
+    }
+
+    .category:nth-child(2) {
+      background-image: linear-gradient(transparent, rgba(0,0,0,.78)),
+        url("https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85");
+    }
+
+    .category:nth-child(3) {
+      background-image: linear-gradient(transparent, rgba(0,0,0,.78)),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=85");
+    }
+
+    .category h3 { font-size: 2rem; }
+    .category p { color: #e8e0d8; margin: 7px 0 14px; }
+
+    .category a {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .price-section {
+      background: var(--black);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .price-section h2 {
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      margin-bottom: 16px;
+    }
+
+    .price-section p:not(.eyebrow) { color: #d8d0c8; }
+
+    .range-box {
+      padding: 35px;
+      background: #241f1b;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .range-box h3 {
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+    }
+
+    .range-values {
+      display: flex;
+      justify-content: space-between;
+      color: var(--gold);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .range-note {
+      margin-top: 20px;
+      color: #bfb5ab;
+      font-size: 0.88rem;
+    }
+
+    .benefits {
+      padding: 75px 8%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+      text-align: center;
+      background: var(--white);
+    }
+
+    .benefit-icon {
+      color: var(--brown);
+      font-size: 2.1rem;
+      margin-bottom: 12px;
+    }
+
+    .benefits h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .benefits p { color: var(--muted); font-size: 0.92rem; }
+
+    footer {
+      padding: 25px 8%;
+      text-align: center;
+      background: #0c0a09;
+      color: #9b9189;
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 850px) {
+      nav ul { display: none; }
+
+      .category-grid,
+      .price-section,
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .price-section { gap: 35px; }
+
+      .category { min-height: 330px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#" class="logo">HAKIMI <span>SHOES</span></a>
+
+    <ul>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="moneyrange.html">Money Range</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <a href="sign in.html" class="sign-in">Sign In</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Hakimi Shoes • Since 2012</p>
+      <h1>Walk With Confidence.</h1>
+      <p>
+        Refined shoes for bold journeys. Discover timeless style, premium
+        comfort, and quality made to move with you.
+      </p>
+      <a href="products.html" class="button">Explore Products</a>
+    </div>
+  </header>
+
+  <section class="section" id="products">
+    <div class="intro">
+      <p class="eyebrow">Our Products</p>
+      <h2>Find the pair that fits your story.</h2>
+      <p>
+        From sharp formal shoes to everyday sneakers, Hakimi Shoes creates
+        footwear for every style, occasion, and destination.
+      </p>
+    </div>
+
+    <div class="category-grid">
+      <article class="category">
+        <div>
+          <h3>Men's Shoes</h3>
+          <p>Modern classics crafted for lasting impact.</p>
+          <a href="products.html">Shop Men →</a>
+        </div>
+      </article>
+
+      <article class="category">
+        <div>
+          <h3>Women's Shoes</h3>
+          <p>Elegant designs made for beautiful movement.</p>
+          <a href="products.html">Shop Women →</a>
+        </div>
+      </article>
+
+      <article class="category">
+        <div>
+          <h3>New Arrivals</h3>
+          <p>Fresh styles for your next step forward.</p>
+          <a href="products.html">View Collection →</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section price-section" id="price-range">
+    <div>
+      <p class="eyebrow">Shop Your Budget</p>
+      <h2>Style at every money range.</h2>
+      <p>
+        Find premium Hakimi footwear within a price range that works for you.
+        Quality and confidence should always be within reach.
+      </p>
+    </div>
+
+    <div class="range-box">
+      <h3>Choose Your Price Range</h3>
+
+      <div class="range-values">
+        <span>$50</span>
+        <span>$250+</span>
+      </div>
+
+      <input type="range" min="50" max="250" value="150" />
+
+      <p class="range-note">
+        Current budget: <strong>$50 - $150</strong><br />
+        Explore sneakers, loafers, flats, sandals, and more.
+      </p>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div>
+      <div class="benefit-icon">✦</div>
+      <h3>Premium Quality</h3>
+      <p>Carefully selected materials and detailed craftsmanship.</p>
+    </div>
+
+    <div>
+      <div class="benefit-icon">◉</div>
+      <h3>Made for Comfort</h3>
+      <p>Every pair is designed to support your everyday journey.</p>
+    </div>
+
+    <div>
+      <div class="benefit-icon">⌖</div>
+      <h3>Fast Delivery</h3>
+      <p>Your new favourite pair delivered straight to your door.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Hakimi Shoes. Every journey begins with a step.
+  </footer>
+</body>
+</html>
