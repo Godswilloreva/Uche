@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Hakimi Shoes</title>
+
+  <style>
+    :root {
+      --black: #121212;
+      --charcoal: #232323;
+      --cream: #f8f5ef;
+      --gold: #c99a4a;
+      --light-gold: #ead5ad;
+      --white: #ffffff;
+      --muted: #77716a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+
+    .hero {
+      min-height: 530px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--white);
+      padding: 80px 8%;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.7)),
+        url("https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 760px;
+    }
+
+    .hero p:first-child {
+      color: var(--light-gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.8rem, 6vw, 5.4rem);
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p:last-child {
+      max-width: 590px;
+      margin: auto;
+      font-size: 1.05rem;
+      color: #f1f1f1;
+    }
+
+    .section {
+      padding: 90px 8%;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .story-image {
+      min-height: 450px;
+      border-radius: 4px;
+      background:
+        url("https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=1000&q=85")
+        center/cover;
+      box-shadow: 18px 18px 0 var(--light-gold);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.2;
+      margin-bottom: 22px;
+    }
+
+    .story-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .values {
+      background: var(--charcoal);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .values h2 {
+      margin-bottom: 55px;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .value-card {
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 42px 28px;
+      transition: 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .value-icon {
+      color: var(--gold);
+      font-size: 2.3rem;
+      margin-bottom: 18px;
+    }
+
+    .value-card h3 {
+      font-family: Georgia, serif;
+      font-size: 1.45rem;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      color: #d4d4d4;
+      font-size: 0.95rem;
+    }
+
+    .quote {
+      text-align: center;
+      padding: 105px 10%;
+      background: #efe9df;
+    }
+
+    .quote blockquote {
+      max-width: 900px;
+      margin: auto;
+      font-family: Georgia, serif;
+      font-size: clamp(1.8rem, 4vw, 3.25rem);
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .quote cite {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-style: normal;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 28px;
+    }
+
+    .cta {
+      padding: 85px 8%;
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      color: #cfcfcf;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      padding: 14px 28px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.25s ease;
+    }
+
+    .button:hover {
+      background: var(--white);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      padding: 24px 8%;
+      background: #090909;
+      color: #9d9d9d;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+      .story,
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story {
+        gap: 45px;
+      }
+
+      .story-image {
+        min-height: 350px;
+      }
+
+      .section {
+        padding: 70px 7%;
+      }
+    
+  </style>
+</head>
+
+
+  <header class="hero">
+    <div class="hero-content">
+      <p>Walk with distinction</p>
+      <h1>More Than Shoes.<br /><span>A Statement.</span></h1>
+      <p>
+        Hakimi Shoes brings together timeless craftsmanship, modern style,
+        and the confidence to go wherever life leads.
+      </p>
+    </div>
+  </header>
+
+  <section class="section story">
+    <div class="story-image"></div>
+
+    <div class="story-text">
+      <p class="eyebrow">Our Story</p>
+      <h2>Crafted for every step of your journey.</h2>
+      <p>
+        Hakimi Shoes was founded on a simple belief: exceptional footwear
+        should feel as good as it looks. We create shoes for people who value
+        character, comfort, and enduring quality.
+      </p>
+      <p>
+        From carefully selected materials to refined finishing details, every
+        pair is made to complement your everyday moments and your biggest
+        ambitions.
+      </p>
+      <p>
+        Whether you are walking into a meeting, celebrating a milestone, or
+        exploring somewhere new, Hakimi Shoes is made to move with you.
+      </p>
+    </div>
+  </section>
+
+  <section class="section values">
+    <p class="eyebrow">The Hakimi Standard</p>
+    <h2>Built on what matters.</h2>
+
+    <div class="value-grid">
+      <article class="value-card">
+        <div class="value-icon">✦</div>
+        <h3>Premium Craft</h3>
+        <p>
+          Thoughtful construction and quality materials deliver shoes designed
+          to last beyond the season.
+        </p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon">◈</div>
+        <h3>Modern Elegance</h3>
+        <p>
+          Classic silhouettes meet contemporary details for a look that always
+          feels polished.
+        </p>
+      </article>
+
+      <article class="value-card">
+        <div class="value-icon">◉</div>
+        <h3>Everyday Comfort</h3>
+        <p>
+          We believe style should never come at the expense of comfort—every
+          step should feel effortless.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="quote">
+    <blockquote>
+      “Great shoes take you places. The right pair reminds you that you belong
+      there.”
+    </blockquote>
+    <cite>— Hakimi Shoes</cite>
+  </section>
+
+  <section class="cta">
+    <h2>Find your next signature pair.</h2>
+    <p>Explore footwear made for confidence, comfort, and lasting impression.</p>
+    <a class="button" href="products.html">Shop the Collection</a>
+  </section>
+
+  <footer>
+    &copy; 2026 Hakimi Shoes. Crafted for the journey ahead.
+  </footer>
+</body>
+</html>
