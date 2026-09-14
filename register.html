@@ -1,0 +1,262 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account | Hakimi Shoes</title>
+
+  <style>
+    :root {
+      --black: #171311;
+      --brown: #7b4d2c;
+      --gold: #d2a363;
+      --cream: #f7f1e9;
+      --white: #ffffff;
+      --muted: #796f66;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 30px 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(rgba(20, 14, 10, 0.72), rgba(20, 14, 10, 0.85)),
+        url("https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .register-card {
+      width: 100%;
+      max-width: 540px;
+      padding: 45px;
+      background: var(--white);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+    }
+
+    .logo {
+      display: block;
+      margin-bottom: 30px;
+      color: var(--black);
+      font-family: Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .eyebrow {
+      color: var(--brown);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 2.5px;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: var(--black);
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      max-width: 370px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      margin-bottom: 17px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--black);
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 0.7px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #ddd1c4;
+      outline: none;
+      background: #fffcf8;
+      color: var(--black);
+      font: inherit;
+      font-size: 0.9rem;
+      transition: 0.2s ease;
+    }
+
+    input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(210, 163, 99, 0.16);
+    }
+
+    .terms {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 5px 0 22px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .terms input {
+      width: auto;
+      margin-top: 3px;
+      accent-color: var(--brown);
+    }
+
+    .terms a {
+      color: var(--brown);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .register-button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      cursor: pointer;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.75rem;
+      font-weight: bold;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .register-button:hover {
+      background: var(--brown);
+    }
+
+    .signin-link {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .signin-link a {
+      color: var(--brown);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .signin-link a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width: 500px) {
+      .register-card {
+        padding: 38px 24px;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="register-card">
+    <a href="index.html" class="logo">HAKIMI <span>SHOES</span></a>
+
+    <p class="eyebrow">Join Hakimi Shoes</p>
+    <h1>Create Your Account</h1>
+
+    <p class="intro">
+      Register to enjoy faster checkout, save your favourite shoes, and receive
+      updates about new collections.
+    </p>
+
+    <form action="index.html" method="get">
+      <div class="row">
+        <div class="field">
+          <label for="first-name">FIRST NAME</label>
+          <input type="text" id="first-name" placeholder="First name" required />
+        </div>
+
+        <div class="field">
+          <label for="last-name">LAST NAME</label>
+          <input type="text" id="last-name" placeholder="Last name" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">EMAIL ADDRESS</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+      </div>
+
+      <div class="field">
+        <label for="password">PASSWORD</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Create a secure password"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <div class="field">
+        <label for="confirm-password">CONFIRM PASSWORD</label>
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirm your password"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <label class="terms">
+        <input type="checkbox" required />
+        <span>
+          I agree to the <a href="index.html">Terms and Conditions</a> and
+          <a href="index.html">Privacy Policy</a>.
+        </span>
+      </label>
+
+      <a href="index.html"><button type="submit" class="register-button">Create Account</button></a>
+    </form>
+
+    <p class="signin-link">
+      Already have an account? <a href="sign in.html">Sign In</a>
+    </p>
+  </main>
+</body>
+</html>
